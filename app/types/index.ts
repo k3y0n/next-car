@@ -12,3 +12,8 @@ export interface CustomFilterProprs {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   containerStyles?: string;
 }
+
+export interface SearchManufacturerProps {
+  manufacturer: string;
+  setManufacturer?: (setManufacturer: string) => void;
+}
