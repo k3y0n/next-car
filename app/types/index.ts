@@ -10,10 +10,14 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
-export interface CustomFilterProprs {
+export interface OptionProps {
   title: string;
-  handleClick?: MouseEventHandler<HTMLButtonElement>;
-  containerStyles?: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionProps[];
 }
 
 export interface SearchManuFacturerProps {

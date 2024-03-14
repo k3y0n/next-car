@@ -9,8 +9,8 @@ import SearchManufacturer from "./SearchManufacturer";
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
     <Image
-      src={"/magnifying-glass.svg"}
-      alt={"magnifying glass"}
+      src="/magnifying-glass.svg"
+      alt="magnifying glass"
       width={40}
       height={40}
       className="object-contain"
@@ -34,7 +34,26 @@ const SearchBar = () => {
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
-  const updateSearchParams = (model: string, manufacturer: string) => {};
+  const updateSearchParams = (model: string, manufacturer: string) => {
+    const searchParams = new URLSearchParams(window.location.search);
+
+    if (model) {
+      searchParams.set("model", model);
+    } else {
+      searchParams.delete("model");
+    }
+
+    if (manufacturer) {
+      searchParams.set("manufacturer", manufacturer);
+    } else {
+      searchParams.delete("manufacturer");
+    }
+    const newPathname = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(newPathname);
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>

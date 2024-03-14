@@ -67,7 +67,9 @@ export const deleteSearchParams = (type: string) => {
 
   newSearchParams.delete(type.toLocaleLowerCase());
 
-  const newPathname = `${window.location.pathname}?${newSearchParams.toString()}`;
+  const newPathname = `${
+    window.location.pathname
+  }?${newSearchParams.toString()}`;
 
   return newPathname;
 };
